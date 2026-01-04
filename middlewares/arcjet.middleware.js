@@ -1,13 +1,6 @@
 import aj from '../config/arcjet.js';
 
 const arcjetMiddleware = async (req, res, next) => {
-    // Skip Arcjet protection for authentication routes (sign-up, sign-in)
-    const excludedRoutes = ['/api/v1/auth/sign-up', '/api/v1/auth/sign-in'];
-
-    if (excludedRoutes.includes(req.path)) {
-        return next();
-    }
-
     try {
         const decision = await aj.protect(req, { requested: 1 });
 
