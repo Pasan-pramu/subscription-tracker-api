@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="112c6946-5253-4736-8557-001c7bd10fdb" name="Changes" comment="create authorization for the backend">
-      <change afterPath="$PROJECT_DIR$/config/arcjet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" afterDir="false" />
+    <list default="true" id="112c6946-5253-4736-8557-001c7bd10fdb" name="Changes" comment="feat(security): integrate Arcjet for rate limiting and bot protection&#10;&#10;- Added Arcjet client configuration in config/arcjet.js&#10;- Created arcjetMiddleware to protect API routes&#10;- Applied middleware globally in main server (arcjet.js)&#10;- Provides protection against excessive requests, bots, and automated abuse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/arcjet.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/arcjet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/arcjet.middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,28 +37,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.app.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/subscription-tracker&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;C:\\Users\\user\\Desktop\\subscription-tracker\\node_modules\\eslint&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.app.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/user/Desktop/subscription-tracker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "C:\\Users\\user\\Desktop\\subscription-tracker\\node_modules\\eslint",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,6 +81,7 @@
       <workItem from="1767269243121" duration="8084000" />
       <workItem from="1767338054847" duration="1791000" />
       <workItem from="1767511523455" duration="2276000" />
+      <workItem from="1767531196640" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="create susbcription model&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <option name="closed" value="true" />
@@ -117,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767524947508</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(security): integrate Arcjet for rate limiting and bot protection&#10;&#10;- Added Arcjet client configuration in config/arcjet.js&#10;- Created arcjetMiddleware to protect API routes&#10;- Applied middleware globally in main server (arcjet.js)&#10;- Provides protection against excessive requests, bots, and automated abuse">
+      <option name="closed" value="true" />
+      <created>1767528458774</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767528458774</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +135,15 @@
     <MESSAGE value="create middleware for error handling" />
     <MESSAGE value="create authentication for the backend" />
     <MESSAGE value="create authorization for the backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="create authorization for the backend" />
+    <MESSAGE value="feat(security): integrate Arcjet for rate limiting and bot protection&#10;&#10;- Added Arcjet client configuration in config/arcjet.js&#10;- Created arcjetMiddleware to protect API routes&#10;- Applied middleware globally in main server (arcjet.js)&#10;- Provides protection against excessive requests, bots, and automated abuse" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(security): integrate Arcjet for rate limiting and bot protection&#10;&#10;- Added Arcjet client configuration in config/arcjet.js&#10;- Created arcjetMiddleware to protect API routes&#10;- Applied middleware globally in main server (arcjet.js)&#10;- Provides protection against excessive requests, bots, and automated abuse" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
