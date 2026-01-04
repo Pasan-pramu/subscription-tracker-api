@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="112c6946-5253-4736-8557-001c7bd10fdb" name="Changes" comment="create susbcription model&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/middlewares/error.middleware.js" afterDir="false" />
+    <list default="true" id="112c6946-5253-4736-8557-001c7bd10fdb" name="Changes" comment="create middleware for error handling">
+      <change afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767517250529</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create middleware for error handling">
+      <option name="closed" value="true" />
+      <created>1767517823626</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1767517823626</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Express API setup" />
     <MESSAGE value="create susbcription model" />
-    <option name="LAST_COMMIT_MESSAGE" value="create susbcription model" />
+    <MESSAGE value="create middleware for error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="create middleware for error handling" />
   </component>
 </project>
