@@ -15,6 +15,17 @@ export const sendReminders = serve(async (context) => {
 
     const renewalDate = dayjs(subscription.renewalDate);
 
+    // For testing: if renewal date is very soon or in the past, send reminder immediately
+    const daysUntilRenewal = renewalDate.diff(dayjs(), 'day');
+
+    if(daysUntilRenewal <= 7 && daysUntilRenewal >= 0) {
+        // Send immediate reminder for testing purposes
+        const daysBeforeValue = daysUntilRenewal === 0 ? 1 : daysUntilRenewal;
+        await triggerReminder(context, `${daysBeforeValue} days before reminder`, subscription);
+        console.log(`Sent immediate reminder for subscription ${subscriptionId}`);
+        return;
+    }
+
     if(renewalDate.isBefore(dayjs())) {
         console.log(`Renewal date has passed for subscription ${subscriptionId}. Stopping workflow.`);
         return;
@@ -46,12 +57,19 @@ const sleepUntilReminder = async (context, label, date) => {
 
 const triggerReminder = async (context, label, subscription) => {
     return await context.run(label, async () => {
-        console.log(`Triggering ${label} reminder`);
+        try {
+            console.log(`[WORKFLOW] Triggering ${label} reminder for subscription: ${subscription.name}`);
 
-        await sendReminderEmail({
-            to: subscription.user.email,
-            type: label,
-            subscription,
-        })
+            await sendReminderEmail({
+                to: subscription.user.email,
+                type: label,
+                subscription,
+            });
+
+            console.log(`[WORKFLOW] ${label} reminder sent successfully`);
+        } catch (error) {
+            console.error(`[WORKFLOW ERROR] Failed to trigger ${label}:`, error.message);
+            throw error;
+        }
     })
 }
